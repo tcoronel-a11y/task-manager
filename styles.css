@@ -1,0 +1,219 @@
+
+:root {
+    --color-principal: #17324d;
+    --color-secundario: #256d85;
+    --color-fondo: #f3f6fa;
+    --color-superficie: #ffffff;
+    --color-texto: #263238;
+    --color-acento: #e6a23c;
+    --color-pendiente: #fff3cd;
+    --color-completada: #d1fae5;
+    --sombra: 0 4px 14px rgba(23, 50, 77, 0.12);
+    --radio: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+.encabezado {
+    padding: 28px 20px;
+    text-align: center;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+.encabezado p {
+    margin: 8px 0 0;
+}
+
+.contenedor {
+    width: min(100% - 32px, 1000px);
+    margin: 30px auto;
+}
+
+.panel,
+.dashboard {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: var(--color-superficie);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--color-secundario);
+}
+
+form,
+.controles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 11px;
+    font: inherit;
+    color: var(--color-texto);
+    background-color: var(--color-superficie);
+    border: 1px solid #bdc9d5;
+    border-radius: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--color-secundario);
+    outline-offset: 2px;
+}
+
+button {
+    align-self: flex-start;
+    padding: 11px 20px;
+    color: var(--color-superficie);
+    background-color: var(--color-secundario);
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-principal);
+}
+
+.metricas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.metrica {
+    flex: 1;
+    min-width: 150px;
+    padding: 16px;
+    text-align: center;
+    background-color: var(--color-fondo);
+    border-radius: 10px;
+}
+
+.metrica h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.metrica p {
+    margin: 8px 0 0;
+    color: var(--color-principal);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.controles {
+    margin-bottom: 20px;
+}
+
+.tarjeta-tarea {
+    margin-bottom: 14px;
+    padding: 18px;
+    border: 1px solid #dbe4ed;
+    border-left: 5px solid var(--color-secundario);
+    border-radius: 10px;
+}
+
+.tarjeta-tarea.completada {
+    background-color: var(--color-completada);
+    border-left-color: #16804a;
+}
+
+.tarjeta-tarea h3 {
+    margin: 0 0 8px;
+}
+
+.tarjeta-tarea p {
+    margin: 6px 0;
+    overflow-wrap: anywhere;
+}
+
+.etiqueta-prioridad {
+    display: inline-block;
+    padding: 3px 9px;
+    color: var(--color-principal);
+    background-color: var(--color-pendiente);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.acciones-tarea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.acciones-tarea button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+#notificacion {
+    font-weight: bold;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+}
+
+@media (min-width: 700px) {
+    form {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        align-items: center;
+    }
+
+    form button,
+    #notificacion {
+        grid-column: 2;
+    }
+
+    .controles {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .encabezado h1 {
+        font-size: 1.8rem;
+    }
+
+    .panel,
+    .dashboard {
+        padding: 18px;
+    }
+}

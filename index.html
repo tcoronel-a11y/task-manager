@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación interactiva para gestionar tareas">
+    <title>TaskManager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <header class="encabezado">
+        <h1>TaskManager</h1>
+        <p>Organiza tus tareas de forma sencilla</p>
+    </header>
+
+    <main class="contenedor">
+        <section class="panel" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario">Crear una tarea</h2>
+
+            <form id="formulario-tarea">
+                <label for="titulo-tarea">Título</label>
+                <input
+                    type="text"
+                    id="titulo-tarea"
+                    placeholder="Ej. Estudiar JavaScript"
+                >
+
+                <label for="descripcion-tarea">Descripción</label>
+                <textarea
+                    id="descripcion-tarea"
+                    rows="3"
+                    placeholder="Describe la tarea"
+                ></textarea>
+
+                <label for="prioridad-tarea">Prioridad</label>
+                <select id="prioridad-tarea">
+                    <option value="Alta">Alta</option>
+                    <option value="Media" selected>Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+
+                <button type="submit">Agregar tarea</button>
+            </form>
+
+            <p id="notificacion" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="dashboard" aria-labelledby="titulo-dashboard">
+            <h2 id="titulo-dashboard">Resumen de tareas</h2>
+
+            <div class="metricas">
+                <article class="metrica">
+                    <h3>Total</h3>
+                    <p id="total-tareas">0</p>
+                </article>
+
+                <article class="metrica">
+                    <h3>Pendientes</h3>
+                    <p id="tareas-pendientes">0</p>
+                </article>
+
+                <article class="metrica">
+                    <h3>Completadas</h3>
+                    <p id="tareas-completadas">0</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="titulo-lista">
+            <h2 id="titulo-lista">Mis tareas</h2>
+
+            <div class="controles">
+                <label for="filtro-estado">Filtrar</label>
+                <select id="filtro-estado">
+                    <option value="todas">Todas</option>
+                    <option value="pendientes">Pendientes</option>
+                    <option value="completadas">Completadas</option>
+                </select>
+
+                <label for="busqueda-tarea">Buscar por título</label>
+                <input
+                    type="search"
+                    id="busqueda-tarea"
+                    placeholder="Escribe para buscar"
+                >
+
+                <label for="orden-tareas">Ordenar por</label>
+                <select id="orden-tareas">
+                    <option value="fecha">Fecha de creación</option>
+                    <option value="prioridad">Prioridad</option>
+                </select>
+            </div>
+
+            <div id="lista-tareas" aria-live="polite">
+                <p>Las tareas aparecerán aquí.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>TaskManager — Proyecto académico de JavaScript Vanilla</p>
+    </footer>
+</body>
+</html>
